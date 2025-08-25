@@ -1,41 +1,5 @@
 from collections import deque
 
-# def propagate(board: list[list[str]], visited: list[list[bool]], start: tuple[int, int]) -> list[tuple[int, int]]:
-#     n, m = len(board), len(board[0])
-#     ans = []
-#
-#     stacks = deque()
-#     stacks.append(start)
-#     bounded = True
-#     while len(stacks) != 0:
-#         position = stacks.popleft()
-#         if (
-#             position[0] >= n
-#             or position[1] >= m
-#             or position[0] < 0
-#             or position[1] < 0
-#         ):
-#             bounded = False
-#             continue
-#
-#         if (
-#             board[position[0]][position[1]] == "X"
-#             or visited[position[0]][position[1]]
-#         ):
-#             continue
-#
-#         visited[position[0]][position[1]] = True
-#         ans.append(position)
-#         stacks.append((position[0], position[1] + 1))
-#         stacks.append((position[0], position[1] - 1))
-#         stacks.append((position[0] + 1, position[1]))
-#         stacks.append((position[0] - 1, position[1]))
-#
-#     if bounded:
-#         return ans
-#     return []
-
-
 def propagate(board: list[list[str]], visited: list[list[bool]], start: tuple[int, int]) -> list[tuple[int, int]]:
     n, m = len(board), len(board[0])
 

@@ -1,7 +1,4 @@
 
-import heapq
-
-
 class Solution:
     def nthUglyNumber(self, n: int) -> int:
         dp = [0] * n
