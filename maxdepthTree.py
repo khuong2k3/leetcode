@@ -32,6 +32,27 @@ class Solution:
                 stacks.append((node.right, depth))
         return ans
 
+    def minDepth(self, root: TreeNode | None) -> int:
+        if root is None:
+            return 0
+
+        stacks = [(root, 1)]
+        ans = 10**5
+
+        while len(stacks) != 0:
+            node, depth = stacks.pop()
+            if node.left is None and node.right is None:
+                ans = min(depth, ans)
+
+            depth = depth + 1
+            if node.left is not None:
+                stacks.append((node.left, depth))
+
+            if node.right is not None:
+                stacks.append((node.right, depth))
+        return ans
+        
+
 sol = Solution()
 
 test1 = TreeNode(1, TreeNode(2), TreeNode(3, TreeNode(4), TreeNode(5)))
