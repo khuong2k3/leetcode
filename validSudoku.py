@@ -1,4 +1,4 @@
-from itertools import product
+from itertools import chain, product
 
 SOLVED_CELL = [(1 << 10) - 2] * 9
 
@@ -60,6 +60,11 @@ class Solution:
             if i == 9:
                 return True
 
+            # for i, r in enumerate(chain([range(cIdx, 9)], [range(9)] * (rIdx - 1)), rIdx):
+            #     for j in r:
+            #         if boardInt[i][j] != -1:
+            #             continue
+
             k = (i // 3) * 3 + j // 3
             for num in range(1, 10):
                 mask = 1 << num
@@ -89,6 +94,8 @@ class Solution:
             for j in range(9):
                 if board[i][j] == ".":
                     board[i][j] = str(boardInt[i][j])
+        print(board)
+
 
 
 sol = Solution()
