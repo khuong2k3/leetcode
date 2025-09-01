@@ -29,3 +29,21 @@ def printListNode(head: ListNode | None):
     ans += ']' 
     print(ans)
 
+
+def fromArrayWithCycle(arr: list[int], pos: int) -> ListNode | None:
+
+    n = len(arr)
+    head = fromArray(arr)
+    if pos >= 0 and pos < n:
+        current = head
+        for _ in range(pos):
+            current = current.next
+
+        tail = current
+        while tail.next is None:
+            tail = tail.next
+        tail.next = current
+
+    return head
+    
+
